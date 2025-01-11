@@ -1,477 +1,142 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NAMERIO - Personal Portfolio Website Template" />
-	<meta name="keywords" content="blog, business card, creative, creative portfolio, cv theme, online resume, personal, portfolio, professional cv, responsive portfolio, resume, resume theme, vcard" />
-	<meta name="author" content="willy wonka" />
-    <title>NAMERIO - Portfolio Websit</title>
-  <!--favicon-img--> 
-   <link rel="icon" type="image/png" href="images/favicon.png">
-   <!--favicon-img-->
-   <!--main css file should not be removed -->
-    <link rel="stylesheet" href="css/index.css">
-    <!--main css file-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <title>Natan | Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="assets/namerio.jpg" type="image/png">
+
 </head>
 <body>
-    <!--contains all the div-->
-    <div id="all">
-    <!--mouse  follower-->
-        <div class="cursor"></div>
-    <!--mouse  follower-->
-    <!--loader-->
-        <div id="loader">
-            <span class="color">NAMERIO</span> 
-        </div>
-    <!--loader-end-->
-    <!--link-screen-->
-        <div id="breaker">
-        </div>
-        <div id="breaker-two">
-        </div>
-    <!--link-screen-->
-        <!--Main-Section-->
-        <!--Navigator-fullscreen-->
-        <div id="navigation-content">
-            <div class="logo">
-                <img src="images/favicon.png" alt="logo" class="circular-image">
+    <nav class="navbar">
+        <ul>
+            <li><a href="#about-me">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="profile-container">
+        <div class="banner">
+            <div class="profile-picture">
+                <img src="assets/namerio.jpg" alt="Profile Picture">
             </div>
-            <div class="navigation-close">
-                <span class="close-first"></span>
-                <span class="close-second"></span>
-            </div>
-            <div class="navigation-links">
-                <a href="#" data-text="HOME" id="home-link" >HOME</a>
-                <a href="#" data-text="ABOUT" id="about-link" >ABOUT</a>
-                <a href="#" data-text="PORTFOLIO" id="portfolio-link" >PORTFOLIO</a>
-                <a href="#" data-text="CONTACT" id="contact-link" >CONTACT</a>
+            <div class="banner-buttons">
+                <a href="https://www.youtube.com/@namerio1" target="_blank">
+                    <img src="icons/Youtube.png" alt="YouTube Button" class="button-img">
+                </a>
+                <a href="https://discord.com/users/605043565856423955" target="_blank">
+                    <img src="icons/discord.png" alt="Discord Button" class="button-img">
+                </a>
+                <a href="https://github.com/NAMERIO" target="_blank">
+                    <img src="icons/github.png" alt="Github Button" class="button-img">
+                </a>
             </div>
         </div>
-        <!--Navigator-Fullscreen END-->
-          <!--Home Page-->
-        <!--Menubar-->
-        <div id="navigation-bar">
-            <img src="images/favicon.png" alt="logo" class="circular-image">
-            <div class="menubar">
-                <span class="first-span"></span>
-                <span class="second-span"></span>
-                <span class="third-span"></span>
-            </div>
-        </div>        
-        <!--Menubar End-->
-          <!--Header-->
-        <div id="header">
-            <div id="particles"></div>
-              <!--Social Media Links-->
-            <div class="social-media-links">
-                <a href="Mailto:namerio.yt@gmail.com"><img src="images/mail.png" class="social-media" alt="email-logo"></a>
-                <a href="https://discord.gg/9DDMfArthQ"><img src="images/discord.png" class="social-media" alt="discord-logo"></a>
-                <a href="https://github.com/NAMERIO"><img src="images/github.png" class="social-media" alt="linkedin-logo"></a>
-                <a href="https://www.youtube.com/@NAMERIO1"><img src="images/youtube.png" class="social-media" alt="youtube-logo"></a>
-
-            </div>
-            <div class="click-here-button"><span class="color">Click this button</span></div>
-            
-            <!--Social Media Links end-->
-            <div class="header-content">
-                <div class="header-content-box">
-                <div class="firstline"><span class="color">NAMERIO </span></div>
-                <div class="secondline">
-                I'm a
-            <span class="txt-rotate color" data-period="1200"data-rotate='[ " Small Youtuber.", " Student.", " Beginner Coder." ]'></span>
-            <span class="slash">|</span>
-        </div>
-                    <div class="contact">
-                <!-- <a href="Mailto:namerio.yt@gmail.com"><img src="images/mail.png" alt="email-pic" class="contactpic"></a>Your email Id write in place of "#" -->
-                <!-- <a href="Tel:N/A"><img src="images/call.png" alt="phone-pic" class="contactpic"></a>Your telephone number Id write in place of "#" -->
-                    </div>    
-            </div>
-            </div>
-            <!--header image-->
-            <!-- <div class="header-image">
-            <img src="images/man.png" alt="logo"> -->
-            </div>
-        </div>
-          
-        <!--HomePage End-->
-        <!--Main-Section End-->
-        <!--about-->
-        <div id="about">
-            <div class="color-changer">
-            <div class="color-panel">
-                <img src="images/gear.png" alt="">
-            </div>
-            <div class="color-selector">
-                <div class="heading">Custom Colors</div>
-                <div class="colors">
-                    <ul >
-                    <li>
-                        <a href="#0" class="color-red " title="color-red"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-purple" title="color-purple"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-malt" title="color-malt"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-green" title="color-green"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-blue" title="color-blue"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-orange" title="color-orange"></a>
-                    </li>
-                    </ul>
+        <div class="profile-content">
+            <div class="left-column">
+                <div id="about-me" class="about-me">
+                    <h2>About Me</h2>
+                    <div class="background-box">
+                        <p>
+                            Hi, I'm Natan Berhanu, a second-year Computer Science major at Metropolitan State University with an anticipated graduation date of 2027. I started coding one year ago and I like building projects, especially in web development and game design.
+                        </p>
+                    </div>                    
                 </div>
-            </div>
-            </div>
-            <!--about content-->
-            <div id="about-content">
-                <div class="about-header">
-                    About <span class="color">Me</span>
-                    <span class ="header-caption">Get to Know <span class="color"> me.</span></span>
+                <div id="certificates" class="certificates">
+                    <h2>Certificates</h2>
+                    <div class="background-box">
+                        <ul>
+                            <li>
+                                IBM Data Science Professional 
+                                <a href="https://www.coursera.org/account/accomplishments/professional-cert/BGR7YVVC7MZA?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=prof" 
+                                   target="_blank" class="bright-link">Certificate</a>
+                            </li>
+                        </ul>                        
+                    </div>
                 </div>
-                <div class="about-main">
-            <div class="about-first-paragraph wow">
-            <!--about description-->
-               <span class="about-first-line">
-                    I'm Beginner 
-                    <span class="color">developer</span>
-                      </span>
-                     <br>
-               <span class="about-second-line"> I am a sophomore student in university. I started coding 8 month ago,  I have acquired some skill and knowlage to make small projects. I enjoy every step while working. </span>
-               <div class="cv">
-                <!-- <a href="#"><button>Download <span class="colors">CV</span></button></a> -->
-            </div>
-            </div>
-            <!--about picture-->
-            <div class="about-img">
-                <img src="images/about.webp" alt="Your Image">
-            </div>
-            </div>
-    
-            </div>
-            <!--services start-->
-            <!-- <div id="services">
-                <div class="color-changer">
-                    <div class="color-panel">
-                        <img src="images/gear.png" alt="">
-                    </div>
-                    <div class="color-selector">
-                        <div class="heading">Custom Colors</div>
-                        <div class="colors">
-                            <ul >
-                            <li>
-                                <a href="#0" class="color-red " title="color-red"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-purple" title="color-purple"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-malt" title="color-malt"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-green" title="color-green"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-blue" title="color-blue"></a>
-                            </li>
-                            <li>
-                                <a href="#0" class="color-orange" title="color-orange"></a>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                    </div> -->
-            <!--services header-->
-                    <!-- <div class="services-heading wow">
-                        <span class="color">My</span> Services
-                    </div> -->
-            <!--services header end-->
-            <!--services content-->
-                    <!-- <div class="services-content">
-                           <div class="service-one service wow">
-                               <div class="service-img">
-                               <img src="images/coding.png" alt="service-one">
-                               </div>
-                               <div class="service-description">
-                                <h2>Web Designing</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                               </div>
-                           </div>
-                           <div class="service-two service wow">
-                               <div class="service-img">
-                               <img src="images/instagram.png" alt="service-two">
-                               </div>
-                               <div class="service-description">
-                                <h2>Social Media</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                               </div>
-                           </div>
-                           <div class="service-three service wow">
-                            <div class="service-img">
-                               <img src="images/bulb.png" alt="service-three">
-                            </div>
-                            <div class="service-description">
-                                <h2>Creative Design</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod quibusdam possimus</p>
-                            </div>
-                        </div>
-                    </div>
-            </div> -->
-            <div id="skills">
-                <div class="skills-header">
-                     My <span class="color"> Skills</span>
-                </div>
-                <div class="skills-content " style="text-align: center;">
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        HTML/CSS
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="html-progress wow">85%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                      Javascript
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="js-progress wow">35%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Adobe Ps
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="adobe-progress wow">83%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        Python
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="python-progress wow">80%</div>
-                    </div>
-                    </div>
-                    <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        C Programing
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="c-progress wow">70%</div>
-                    </div>
-                    </div>
-                    <!-- <div class="skill-html skill">
-                        <div class="skill-text">
-                    <div class="html">
-                        SEO
-                    </div>
-                        </div>
-                    <div class="html-prog wow prog">
-                 <div class="seo-progress wow">84%</div>
-                    </div>
-                    </div> -->
-                </div>
-            </div>
-    
-        </div>
-        <!--portfolio-->
-        <div id="portfolio">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
-                </div>
-                <div class="color-selector">
-                    <div class="heading">Custom Colors</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-malt" title="color-malt"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-orange" title="color-orange"></a>
-                        </li>
+                <div id="contact" class="contact-info">
+                    <h2>Contact Info</h2>
+                    <div class="background-box">
+                        <ul>
+                            <li>Email: <a href="mailto:natanberhanu22@gmail.com">natanberhanu22@gmail.com</a></li>
+                            <li>GitHub: <a href="https://github.com/NAMERIO" target="_blank">github.com/NAMERIO</a></li>
+                            <li>LinkedIn: <a href="https://www.linkedin.com/in/natan-berhanu-30624831a/" target="_blank">linkedin.com/in/natan-berhanu-30624831a/</a></li>
                         </ul>
                     </div>
                 </div>
-                </div>
-            <div class="portfolio-header"> <span class="color"> My </span> Portfolio
-            <span class ="header-caption"> Some Of My <span class="color"> Works</span></span></div>
-             <div id="portfolio-content">
-                 <div class="portfolio portfolio-first">
-                     <div class="portfolio-image">
-                        <img src="images/portfolio-first.png" alt="portfolio-first"> 
-                     </div>
-                     <div class="portfolio-text">
-                        <h2>Resurviv</h2>
-                        <p>This is an open source project to remake surviv.io. This project is made by hasanger and currently run by me.
-                           Visit the <a href="https://github.com/NAMERIO/namerio.biz-resurviv" target="_blank">github</a> for more information.</p>
-                        <div class="button">
-                            <a href="https://namerio.biz/" target="_blank">
-                                <button>
-                                    <span class="index"> View Project <i class="gg-arrow-right"></i></span>
-                                </button>
-                            </a>
-                        </div>
-                    </div>                    
-                    </div>
-                 </div>
-                <!-- <div class="portfolio portfolio-third">
-                    <div class="portfolio-image">
-                        <img src="images/portfolio-third.jpg" alt="portfolio-third">
-                    </div>
-                    <div class="portfolio-text">
-                        <h2>UI Designing</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ut optio repellat cupiditate expedita eius dignissimos
-                            .. Id cumque placeat minima ad laudantium suscipit voluptatem ducimus</p>
-                        <div class="button"><a href="#"><button><span class="index"> View Project<i class="gg-arrow-right"></i></span></button></a></div>
-                    </div>
-                </div> -->
-                 </div>
-                    <!--copyright-section You Can Remove After Downloading-->
-        <!--portfolio end-->
-        <!--  -->
-               <!--copyright-section You Can Remove After Downloading-->
-               <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> NAMERIO
-                </div>
-               </div>
-       <!--copyright-section-->
-        </div>
-        <!--contact-->
-     <div id="contact">
-        <div class="color-changer">
-            <div class="color-panel">
-                <img src="images/gear.png" alt="">
             </div>
-            <div class="color-selector">
-                <div class="heading">Custom Colors</div>
-                <div class="colors">
-                    <ul >
-                    <li>
-                        <a href="#0" class="color-red " title="color-red"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-purple" title="color-purple"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-malt" title="color-malt"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-green" title="color-green"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-blue" title="color-blue"></a>
-                    </li>
-                    <li>
-                        <a href="#0" class="color-orange" title="color-orange"></a>
-                    </li>
-                    </ul>
+            <div class="right-column">
+                <div class="skills-section" id="skills">
+                    <h2>Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill">
+                            <img src="icons/html.png" alt="HTML">
+                            <p>HTML</p>
+                        </div>
+                        <div class="skill">
+                            <img src="icons/css.png" alt="CSS">
+                            <p>CSS</p>
+                        </div>
+                        <div class="skill">
+                            <img src="icons/js.png" alt="JavaScript">
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="skill">
+                            <img src="icons/node-js.png" alt="Node.js">
+                            <p>Node.js</p>
+                        </div>
+                        <div class="skill">
+                            <img src="icons/python.png" alt="Python">
+                            <p>Python</p>
+                        </div>
+                        <div class="skill">
+                            <img src="icons/linux.png" alt="Linux">
+                            <p>Linux</p>
+                        </div>
+                        <div class="skill">
+                            <img src="icons/react.png" alt="Linux">
+                            <p>React</p>
+                        </div>
+                    </div>
+                </div>                
+                <div id="projects" class="projects-section">
+                    <h2>Projects</h2>
+                    <div class="project">
+                        <h3>iogames.io</h3>
+                        <p>
+                            A react app that you can play io games in one place. 
+                            <a href="https://github.com/Namerio/iogames.games" target="_blank" rel="noopener noreferrer" class="bright-link">GitHub</a>
+                        </p>
+                    </div>
+                    <div class="project">
+                        <h3>Coin Track</h3>
+                        <p>
+                            A react app where users can see info about crypto coins. 
+                            <a href="https://github.com/Namerio/cointrack" target="_blank" rel="noopener noreferrer" class="bright-link">GitHub</a>
+                        </p>
+                    </div>
+                    <div class="project">
+                        <h3>Blind Ranking</h3>
+                        <p>
+                            A ranking game where players rank items/people/objects without seeing what comes next. 
+                            <a href="https://github.com/NAMERIO/Blind-Ranking-Game" target="_blank" rel="noopener noreferrer" class="bright-link">GitHub</a>
+                        </p>
+                    </div>
+                    <div class="project">
+                        <h3>Resurviv</h3>
+                        <p>
+                            A remake of surviv.io. An online battle royale 2D game. 
+                            <a href="https://github.com/Namerio/resurviv" target="_blank" rel="noopener noreferrer" class="bright-link">GitHub</a>
+                        </p>
+                    </div>
+                </div>                
                 </div>
             </div>
-            </div>
-         <div class="contact-header">Contact <span class="color"> Me</span>
-        <div class="contact-header-caption"> <span class="color"> Get</span> In Touch.</div></div>
-        <div class="contact-content">
-            <!--Contact form-->
-             <div class="contact-form">
-                 <div class="form-header">
-                     Message Me
-                 </div>
-                 <form id="myForm" action="#">
-                    <div class="input-line">
-                        <input  id="name" type="text" placeholder="Name" class="input-name">
-                        <input id="email" type="email" placeholder="Email"  class="input-name">
-                    </div>
-                    <input type="text" id="subject" placeholder="subject" class="input-subject">
-                    <textarea id ="body" class="input-textarea" placeholder="message"></textarea>
-                    <button type="button" id ="submit" value="send">Submit</button>
-                 </form>
-               
-             </div>
-            <!--Contact form-->
-            <!--Contact information-->
-             <div class="contact-info">
-                <div class="contact-info-header">
-                    Contact Info
-                </div>
-                <div class="contact-info-content">
-                    <div class="contect-info-content-line">
-                        <a href="https://github.com/NAMERIO"><img src="./images/github.png" class="icon" alt="name-icon"></a>
-                        <div class="contact-info-icon-text">
-                            <h6>Github</h6>
-                        </div>
-                    </div>
-                    <div class="contect-info-content-line">
-                        <a href="https://discord.gg/9DDMfArthQ"><img src="./images/discord.png" class="icon" alt="discord-icon"></a>
-                        <div class="contact-info-icon-text">
-                            <h6>Discord</h6>
-                        </div>
-                    </div>
-                    <div class="contect-info-content-line">
-                        <a href="https://www.youtube.com/@NAMERIO1"><img src="./images/youtube.png" class="icon" alt="discord-icon"></a>
-                        <div class="contact-info-icon-text">
-                            <h6>YouTube</h6>
-                        </div>
-                    </div>
-                    <div class="contect-info-content-line">
-                        <a href="mailto:namerio.yt@gmail.com"><img src="./images/mail.png" class="icon" alt="email-icon"></a>
-                        <div class="contact-info-icon-text">
-                            <h6>Email</h6>
-                        </div>
-                    </div>
-                </div>
-                
-                    
-     </div>
-        
-    </div>
-    <!--all the divisions-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/particles.js"></script>
-    <script src="js/particles.min.js"></script>
-    <script src="js/index.js"></script>
-    <!--particles script-->
-    <script>
-  particlesJS("particles", {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
-    </script>
-    <!--copyright-section You Can Remove After Downloading-->
-    <div class="footer">
-        <div class="footer-text">
-            <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> NAMERIO
         </div>
     </div>
-
+    <script src="script/app.js"></script>
 </body>
 </html>
