@@ -147,7 +147,7 @@ function updateParticles() {
     requestAnimationFrame(updateParticles);
 }
 
-const cards = document.querySelectorAll('.project-card');
+// const cards = document.querySelectorAll('.project-card');
 
 cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
