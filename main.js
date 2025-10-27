@@ -173,3 +173,39 @@ document.querySelectorAll('section').forEach(section => {
 
 setInterval(drawMatrix, 50);
 updateParticles();
+
+const projectsGrid = document.querySelector('.projects-grid');
+let isAutoScrolling = true;
+let scrollSpeed = 1;
+let animationId;
+
+function autoScroll() {
+    if (isAutoScrolling && projectsGrid) {
+        projectsGrid.scrollLeft += scrollSpeed;
+
+        if (projectsGrid.scrollLeft >= projectsGrid.scrollWidth - projectsGrid.clientWidth) {
+            projectsGrid.scrollLeft = 0;
+        }
+    }
+    animationId = requestAnimationFrame(autoScroll);
+}
+
+projectsGrid.addEventListener('mouseenter', () => {
+    isAutoScrolling = false;
+});
+
+projectsGrid.addEventListener('mouseleave', () => {
+    isAutoScrolling = true;
+});
+
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        isAutoScrolling = false;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        isAutoScrolling = true;
+    });
+});
+
+autoScroll();
