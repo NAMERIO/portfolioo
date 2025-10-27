@@ -179,11 +179,19 @@ let isAutoScrolling = true;
 let scrollSpeed = 1;
 let animationId;
 
+const originalCards = Array.from(projectsGrid.children);
+originalCards.forEach(card => {
+    const clone = card.cloneNode(true);
+    projectsGrid.appendChild(clone);
+});
+
 function autoScroll() {
     if (isAutoScrolling && projectsGrid) {
         projectsGrid.scrollLeft += scrollSpeed;
 
-        if (projectsGrid.scrollLeft >= projectsGrid.scrollWidth - projectsGrid.clientWidth) {
+        const maxScroll = projectsGrid.scrollWidth / 2;
+
+        if (projectsGrid.scrollLeft >= maxScroll) {
             projectsGrid.scrollLeft = 0;
         }
     }
@@ -198,14 +206,17 @@ projectsGrid.addEventListener('mouseleave', () => {
     isAutoScrolling = true;
 });
 
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        isAutoScrolling = false;
-    });
+function attachHoverListeners() {
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            isAutoScrolling = false;
+        });
 
-    card.addEventListener('mouseleave', () => {
-        isAutoScrolling = true;
+        card.addEventListener('mouseleave', () => {
+            isAutoScrolling = true;
+        });
     });
-});
+}
 
+attachHoverListeners();
 autoScroll();
