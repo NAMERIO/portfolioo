@@ -451,7 +451,7 @@ section {
 .projects-grid {
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none;
     gap: 1.5rem;
     padding: 0 2rem 2rem 2rem;
     -webkit-overflow-scrolling: touch;
@@ -482,7 +482,7 @@ section {
     overflow: hidden;
     backdrop-filter: blur(5px);
     flex: 0 0 320px;
-    scroll-snap-align: start;
+    scroll-snap-align: none;
     box-sizing: border-box;
 }
 

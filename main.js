@@ -184,14 +184,18 @@ originalCards.forEach(card => {
     const clone = card.cloneNode(true);
     projectsGrid.appendChild(clone);
 });
+originalCards.forEach(card => {
+    const clone = card.cloneNode(true);
+    projectsGrid.appendChild(clone);
+});
 
 function autoScroll() {
     if (isAutoScrolling && projectsGrid) {
         projectsGrid.scrollLeft += scrollSpeed;
 
-        const maxScroll = projectsGrid.scrollWidth / 2;
+        const singleSetWidth = projectsGrid.scrollWidth / 3;
 
-        if (projectsGrid.scrollLeft >= maxScroll) {
+        if (projectsGrid.scrollLeft >= singleSetWidth) {
             projectsGrid.scrollLeft = 0;
         }
     }
