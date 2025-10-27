@@ -239,14 +239,14 @@ section {
 }
 
 .hero-content {
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(26, 26, 26, 0.6);
     padding: 3rem;
-    border-radius: 15px;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 0 30px var(--primary-color);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    box-shadow: 0 5px 25px rgba(0, 255, 0, 0.2);
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 }
 
 .hero-content h1 {
@@ -392,22 +392,22 @@ section {
 }
 
 .about-text {
-    background: rgba(26, 26, 26, 0.8);
-    padding: 2.5rem;
-    border-radius: 15px;
-    border: 2px solid var(--primary-color);
+    background: rgba(26, 26, 26, 0.6);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 0, 0.3);
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
 }
 
 .skills {
-    background: rgba(26, 26, 26, 0.8);
-    padding: 2.5rem;
-    border-radius: 15px;
-    border: 2px solid var(--primary-color);
-    box-shadow: 0 0 20px var(--primary-color);
-    backdrop-filter: blur(10px);
+    background: rgba(26, 26, 26, 0.6);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    box-shadow: 0 5px 25px rgba(0, 255, 0, 0.2);
+    backdrop-filter: blur(5px);
 }
 
 .skill-tags {
