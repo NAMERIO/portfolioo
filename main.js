@@ -1,6 +1,8 @@
 const themeToggle = document.getElementById("theme-toggle");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const root = document.documentElement;
+const body = document.body;
+const navLinks = [...document.querySelectorAll(".nav-links a")];
 
 function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
@@ -27,6 +29,7 @@ const commands = [
 let currentCommandIndex = 0;
 const typingText = document.getElementById("typing-text");
 const commandOutput = document.getElementById("command-output");
+const terminalCard = document.querySelector(".terminal-card");
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -45,12 +48,21 @@ async function runTerminalLoop() {
 
     const item = commands[currentCommandIndex];
     await typeText(item.cmd, typingText);
+    terminalCard?.classList.remove("is-pulsing");
+    void terminalCard?.offsetWidth;
+    terminalCard?.classList.add("is-pulsing");
     commandOutput.textContent = item.output;
     await sleep(2200);
     commandOutput.textContent = "";
     currentCommandIndex = (currentCommandIndex + 1) % commands.length;
     runTerminalLoop();
 }
+
+terminalCard?.addEventListener("animationend", event => {
+    if (event.animationName === "terminalPulse") {
+        terminalCard.classList.remove("is-pulsing");
+    }
+});
 
 runTerminalLoop();
 
@@ -76,6 +88,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll(".reveal").forEach(element => revealObserver.observe(element));
 
 const cards = document.querySelectorAll(".social-card, .skill-icon");
+const magneticLinks = document.querySelectorAll(".hero-socials a");
 
 cards.forEach(card => {
     card.addEventListener("pointermove", event => {
@@ -92,6 +105,22 @@ cards.forEach(card => {
 
     card.addEventListener("pointerleave", () => {
         card.style.transform = "";
+    });
+});
+
+magneticLinks.forEach(link => {
+    link.addEventListener("pointermove", event => {
+        const rect = link.getBoundingClientRect();
+        const x = (event.clientX - rect.left - rect.width / 2) * 0.28;
+        const y = (event.clientY - rect.top - rect.height / 2) * 0.28;
+
+        link.style.setProperty("--magnet-x", `${x}px`);
+        link.style.setProperty("--magnet-y", `${y}px`);
+    });
+
+    link.addEventListener("pointerleave", () => {
+        link.style.setProperty("--magnet-x", "0px");
+        link.style.setProperty("--magnet-y", "0px");
     });
 });
 
@@ -118,6 +147,25 @@ let particles = [];
 let scrollY = window.scrollY;
 let journeyStops = [];
 let journeyPathLength = 0;
+let activeSectionId = "";
+
+function setActiveSection(id) {
+    if (!id || activeSectionId === id) return;
+
+    activeSectionId = id;
+    body.classList.remove("section-home", "section-about", "section-projects", "section-contact");
+    body.classList.add(`section-${id}`);
+
+    navLinks.forEach(link => {
+        const isActive = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) {
+            link.setAttribute("aria-current", "page");
+        } else {
+            link.removeAttribute("aria-current");
+        }
+    });
+}
 
 function buildJourneyPath(points) {
     if (!points.length) return "";
@@ -197,6 +245,7 @@ function updateScrollEffects() {
         const nextDistance = Math.abs(stop.targetTop - viewportFocus);
         return nextDistance < currentDistance ? stop : current;
     }, journeyStops[0]);
+    setActiveSection(activeStop.id);
     const firstTop = journeyStops[0].targetTop;
     const lastTop = journeyStops[journeyStops.length - 1].targetTop;
     const localProgress = Math.min(Math.max((viewportFocus - firstTop) / Math.max(lastTop - firstTop, 1), 0), 1);
@@ -259,13 +308,22 @@ function drawAmbient() {
 
 function setActiveProject(row) {
     if (!projectPreview || !row) return;
+    const nextImage = `url('${row.dataset.image}')`;
+    if (projectPreview.style.backgroundImage === nextImage) return;
 
     projectRows.forEach(item => item.classList.toggle("is-active", item === row));
-    projectPreview.style.backgroundImage = `url('${row.dataset.image}')`;
+    projectPreview.classList.remove("is-swapping");
+    void projectPreview.offsetWidth;
+    projectPreview.classList.add("is-swapping");
+    projectPreview.style.backgroundImage = nextImage;
     if (projectPreviewLabel) {
         projectPreviewLabel.textContent = row.dataset.title || "";
     }
 }
+
+projectPreview?.addEventListener("animationend", () => {
+    projectPreview.classList.remove("is-swapping");
+});
 
 projectRows.forEach(row => {
     row.addEventListener("mouseenter", () => setActiveProject(row));

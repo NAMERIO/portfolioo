@@ -48,6 +48,26 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
+body.section-home {
+    --section-glow: rgba(88, 242, 194, 0.14);
+    --section-glow-2: rgba(122, 168, 255, 0.1);
+}
+
+body.section-about {
+    --section-glow: rgba(255, 191, 105, 0.14);
+    --section-glow-2: rgba(88, 242, 194, 0.09);
+}
+
+body.section-projects {
+    --section-glow: rgba(122, 168, 255, 0.16);
+    --section-glow-2: rgba(255, 191, 105, 0.1);
+}
+
+body.section-contact {
+    --section-glow: rgba(88, 242, 194, 0.12);
+    --section-glow-2: rgba(255, 191, 105, 0.12);
+}
+
 body::before {
     content: "";
     position: fixed;
@@ -98,9 +118,12 @@ a {
     width: 26rem;
     height: 26rem;
     border-radius: 999px;
-    background: rgba(255, 191, 105, 0.1);
+    background:
+        radial-gradient(circle at 35% 35%, var(--section-glow, rgba(255, 191, 105, 0.1)), transparent 58%),
+        radial-gradient(circle at 70% 70%, var(--section-glow-2, rgba(122, 168, 255, 0.08)), transparent 62%);
     filter: blur(70px);
     pointer-events: none;
+    transition: background 0.45s ease, transform 0.45s ease, opacity 0.45s ease;
 }
 
 .journey-line {
@@ -203,6 +226,7 @@ a {
 }
 
 .nav-links a {
+    position: relative;
     display: block;
     padding: 8px 14px;
     border-radius: 999px;
@@ -213,9 +237,29 @@ a {
     transition: color 0.25s ease, background 0.25s ease;
 }
 
-.nav-links a:hover {
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 5px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    box-shadow: 0 0 14px rgba(88, 242, 194, 0.45);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.is-active {
     color: var(--text);
     background: var(--surface-strong);
+}
+
+.nav-links a.is-active::after {
+    transform: scaleX(1);
 }
 
 #theme-toggle {
@@ -329,6 +373,26 @@ h1 {
     animation: textSheen 7s ease-in-out infinite;
 }
 
+.hero-content.in-view .eyebrow,
+.hero-content.in-view h1,
+.hero-content.in-view .hero-copy,
+.hero-content.in-view .hero-socials {
+    animation: heroRise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero-content.in-view h1 {
+    animation: heroRise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both, textSheen 7s ease-in-out infinite;
+    animation-delay: 0.08s, 0s;
+}
+
+.hero-content.in-view .hero-copy {
+    animation-delay: 0.18s;
+}
+
+.hero-content.in-view .hero-socials {
+    animation-delay: 0.28s;
+}
+
 h2 {
     max-width: 760px;
     margin-top: 14px;
@@ -353,6 +417,8 @@ h3 {
 }
 
 .hero-socials a {
+    --magnet-x: 0px;
+    --magnet-y: 0px;
     width: 48px;
     height: 48px;
     display: inline-flex;
@@ -365,11 +431,12 @@ h3 {
     font-size: 1.25rem;
     text-decoration: none;
     box-shadow: 0 14px 42px rgba(0, 0, 0, 0.18);
-    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+    transform: translate3d(var(--magnet-x), var(--magnet-y), 0);
+    transition: transform 0.18s ease, border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 
 .hero-socials a:hover {
-    transform: translateY(-4px);
+    transform: translate3d(var(--magnet-x), calc(var(--magnet-y) - 4px), 0) scale(1.06);
     border-color: rgba(88, 242, 194, 0.55);
     background: rgba(88, 242, 194, 0.11);
     color: var(--accent);
@@ -434,6 +501,10 @@ h3 {
 .terminal-card {
     overflow: hidden;
     position: relative;
+}
+
+.terminal-card.is-pulsing {
+    animation: terminalPulse 0.7s ease;
 }
 
 .terminal-card::after {
@@ -696,6 +767,10 @@ h3 {
     background-size: cover;
     box-shadow: var(--shadow);
     transition: background-image 0.25s ease, filter 0.25s ease, transform 0.25s ease;
+}
+
+.project-preview.is-swapping {
+    animation: previewSwap 0.46s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .project-preview::before {
@@ -1070,6 +1145,50 @@ footer span {
     72%,
     100% {
         background-position: 180% center;
+    }
+}
+
+@keyframes heroRise {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes previewSwap {
+    0% {
+        transform: scale(0.985);
+        filter: blur(8px) saturate(0.9);
+    }
+
+    55% {
+        transform: scale(1.018);
+        filter: blur(0) saturate(1.12);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: blur(0) saturate(1);
+    }
+}
+
+@keyframes terminalPulse {
+    0%,
+    100% {
+        box-shadow: var(--shadow);
+        border-color: var(--line);
+    }
+
+    42% {
+        box-shadow: var(--shadow), 0 0 42px rgba(88, 242, 194, 0.24);
+        border-color: rgba(88, 242, 194, 0.44);
     }
 }
 
