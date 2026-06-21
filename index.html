@@ -4,238 +4,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natan | Frontend Developer</title>
+    <meta name="description" content="Natan Berhanu - frontend developer building web apps, browser games, and interactive tools.">
+    <title>Natan Berhanu | Frontend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 
 <body>
-    <div id="starfield"></div>
-    <canvas id="matrix-rain"></canvas>
-    <div id="particles"></div>
-    <div class="terminal-overlay"></div>
-    <nav>
+    <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+    <div class="cursor-light" aria-hidden="true"></div>
+    <div class="page-glow" aria-hidden="true"></div>
+
+    <nav class="site-nav">
         <div class="nav-content">
-            <div class="logo glitch-text">> cd ~/natan</div>
             <ul class="nav-links">
-                <li><a href="#home" class="glitch-hover">./home</a></li>
-                <li><a href="#about" class="glitch-hover">./about</a></li>
-                <li><a href="#projects" class="glitch-hover">./projects</a></li>
-                <li><a href="#contact" class="glitch-hover">./contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <button id="theme-toggle">
+            <button id="theme-toggle" aria-label="Toggle theme">
                 <i class="fas fa-moon"></i>
             </button>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="terminal">
-                <div class="terminal-header">
-                    <span class="terminal-button"></span>
-                    <span class="terminal-button"></span>
-                    <span class="terminal-button"></span>
-                </div>
-                <div class="terminal-body">
-                    <div class="command-line">
-                        <span class="prompt">$</span>
-                        <span class="command" id="typing-text"></span>
-                        <span class="cursor">█</span>
-                    </div>
-                    <div class="command-output" id="command-output"></div>
-                </div>
-            </div>
-            <h1 class="animate-text glitch-text">> <span class="highlight">Natan</span></h1>
-            <p class="animate-text" style="font-family: 'Courier New', monospace;">Frontend Developer | Game Developer | Student</p>
-            <div class="social-links">
-                <a href="https://github.com/NAMERIO" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/natan-berhanu-30624831a/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
-            </div>
+    <main>
+        <div class="journey-line" aria-hidden="true">
+            <svg id="journey-svg">
+                <defs>
+                    <linearGradient id="journey-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#58f2c2" />
+                        <stop offset="55%" stop-color="#ffbf69" />
+                        <stop offset="100%" stop-color="#7aa8ff" />
+                    </linearGradient>
+                </defs>
+                <path id="journey-path"></path>
+                <path id="journey-glow"></path>
+                <g id="journey-points"></g>
+            </svg>
         </div>
-    </section>
 
-    <section id="about">
-        <h2 class="glitch-text">> cat about.txt</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Arch_Linux_%22Crystal%22_icon.svg" alt="Arch Linux Logo" style="width: 150px; margin: 10px auto 0; margin-bottom: 50px; display: block;" />
-                <p style="font-family: 'Courier New', monospace;">
-                    $ Hey, I’m a frontend developer who loves building web apps and browser games. I work mostly with React.js. I’m majoring in Software Engineering and minoring in Cybersecurity and IT Management. Lately, I’ve been getting into game dev and creating interactive
-                    stuff on the web, basically anything that I feel like doing.
+        <section id="home" class="hero">
+            <div class="hero-content reveal">
+                <p class="eyebrow">Frontend Developer / Web Games / Interactive Tools</p>
+                <h1>I build web apps, game tools, and browser experiences.</h1>
+                <p class="hero-copy">
+                    I am Natan. I work with React, TypeScript, Canvas, and Node to build useful
+                    interfaces, small games, and tools that solve real problems.
                 </p>
+                <div class="hero-socials" aria-label="Social links">
+                    <a href="https://discord.com/" target="_blank" rel="noreferrer" aria-label="Discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://github.com/NAMERIO" target="_blank" rel="noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/natan-berhanu-30624831a/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
             </div>
-            <div class="skills">
-                <h3 class="glitch-text">> ls ./skills</h3>
-                <div class="skill-tags">
-                    <div class="skill-icon">
-                        <i class="devicon-html5-plain colored"></i>
-                        <span>HTML5</span>
+
+            <div class="hero-panel reveal" data-delay="120">
+                <div class="terminal-card">
+                    <div class="terminal-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
-                    <div class="skill-icon">
-                        <i class="devicon-css3-plain colored"></i>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="devicon-javascript-plain colored"></i>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="devicon-typescript-plain colored"></i>
-                        <span>TypeScript</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="devicon-python-plain colored"></i>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="devicon-react-original colored"></i>
-                        <span>React</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="devicon-nodejs-plain colored"></i>
-                        <span>Node.js</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="devicon-linux-plain colored"></i>
-                        <span>Linux</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="devicon-git-plain colored"></i>
-                        <span>Git</span>
-                    </div>
-                    <div class="skill-icon">
-                        <i class="fas fa-paint-brush"></i>
-                        <span>Canvas</span>
+                    <div class="terminal-body">
+                        <p><span>$</span> whoami</p>
+                        <strong id="typing-text"></strong>
+                        <p class="command-output" id="command-output"></p>
                     </div>
                 </div>
+                <div class="stats-grid">
+                    <div>
+                        <strong>React</strong>
+                        <span>UI systems</span>
+                    </div>
+                    <div>
+                        <strong>Canvas</strong>
+                        <span>Games & tools</span>
+                    </div>
+                    <div>
+                        <strong>Node</strong>
+                        <span>Back-end basics</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="kinetic-band" aria-hidden="true">
+            <div class="ticker-track">
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>Canvas</span>
+                <span>Node.js</span>
+                <span>Game Dev</span>
+                <span>Web Tools</span>
+                <span>UI Systems</span>
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>Canvas</span>
+                <span>Node.js</span>
+                <span>Game Dev</span>
+                <span>Web Tools</span>
+                <span>UI Systems</span>
             </div>
         </div>
-    </section>
 
-    <section id="projects">
-        <h2 class="glitch-text">> ls ./projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image" style="background: url('./image/iogames.png') center/cover;"></div>
-                <h3>iogames.io</h3>
-                <p>A React based platform that brings popular IO games together in one place. Features seamless game integration and a modern user interface.</p>
-                <div class="tech-stack">
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>Tailwind CSS</span>
-                    <span>Vite</span>
+        <section id="about" class="section-shell">
+            <div class="section-heading reveal">
+                <p class="eyebrow">What I Do</p>
+                <h2>Clean interfaces, useful tools, and interactive browser projects.</h2>
+            </div>
+            <div class="about-layout">
+                <div class="about-text reveal">
+                    <p>
+                        I build frontend projects with a focus on responsive layouts, smooth interactions,
+                        and clear user flows. Most of my work is in React, TypeScript, and modern CSS.
+                    </p>
+                    <p>
+                        I also like making browser games and creative tools, especially projects that use
+                        Canvas, sprites, real-time logic, or small systems that feel fun to use.
+                    </p>
                 </div>
-                <div class="project-links">
-                    <a href="https://iogame.games/" target="_blank" class="btn">Live Demo</a>
-                    <a href="https://github.com/Namerio/iogames.games" target="_blank" class="btn">Source</a>
+                <div class="skills reveal" id="stack" data-delay="120">
+                    <h3>Stack</h3>
+                    <div class="skill-tags">
+                        <div class="skill-icon"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+                        <div class="skill-icon"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+                        <div class="skill-icon"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                        <div class="skill-icon"><i class="devicon-typescript-plain colored"></i><span>TypeScript</span></div>
+                        <div class="skill-icon"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+                        <div class="skill-icon"><i class="devicon-react-original colored"></i><span>React</span></div>
+                        <div class="skill-icon"><i class="devicon-nodejs-plain colored"></i><span>Node.js</span></div>
+                        <div class="skill-icon"><i class="devicon-linux-plain colored"></i><span>Linux</span></div>
+                        <div class="skill-icon"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+                        <div class="skill-icon"><i class="fas fa-paint-brush"></i><span>Canvas</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image" style="background: url('./image/umnhomepage.png') center/cover;"></div>
-                <h3>UMN Discover</h3>
-                <p>The UMN Discover App is a web tool designed to help student life at the University of Minnesota. The platform brings together essential services and functions in one place, making it easier to manage academics, campus navigation, and involvement.</p>
-                <div class="tech-stack">
-                    <span>React.js</span>
-                    <span>Node.js</span>
-                    <span>Express.js</span>
-                    <span>PostgreSQL</span>
-                    <span>Google OAuth</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/CSCI-Social-Club-UMN/UMN-Discover" target="_blank" class="btn">Source</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background: url('./image/spritesheet-extractor-thumbnail.png') center/cover;"></div>
-                <h3>Spritesheet Extractor</h3>
-                <p>A fast and simple tool that automatically splits spritesheets into individual frames. Ideal for pixel art, game development, and animation workflows. no manual slicing required.</p>
-                <div class="tech-stack">
-                    <span>React</span>
-                    <span>TypeScript</span>
-                    <span>Tailwind CSS</span>
-                    <span>Vite</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://spritesheet-extractor.vercel.app/" target="_blank" class="btn">Site</a>
-                    <a href="https://github.com/NAMERIO/Spritesheet-Extractor" target="_blank" class="btn">Source</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background: url('https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=80') center/cover;"></div>
-                <h3>Coin Track</h3>
-                <p>A comprehensive cryptocurrency tracking application built with React. Monitor real time prices, market caps, and trends for various cryptocurrencies.</p>
-                <div class="tech-stack">
-                    <span>React</span>
-                    <span>Crypto API</span>
-                    <span>Charts.js</span>
-                    <span>TypeScript</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Namerio/cointrack" target="_blank" class="btn">Source</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcO1CwbMJHQd5zd89TFTk84Lno1ES4TGYW9w&s') center/cover;"></div>
-                <h3>Blind Ranking</h3>
-                <p>A ranking game where players rank items without seeing what comes next. Real-time updates and multiplayer functionality comming soon.</p>
-                <div class="tech-stack">
-                    <span>TypeScript</span>
-                    <span>WebSocket</span>
-                    <span>Node.js</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/NAMERIO/Blind-Ranking-Game" target="_blank" class="btn">Source</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-image" style="background: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/945360/capsule_616x353.jpg?t=1731953093') center/cover;"></div>
-                <h3>Among Us Clone</h3>
-                <p>A browser-based recreation of the popular game Among Us. Features multiplayer functionality, tasks system, and real-time player interactions.</p>
-                <div class="tech-stack">
-                    <span>Canvas</span>
-                    <span>WebSocket</span>
-                    <span>Node.js</span>
-                    <span>TypeScript</span>
-                </div>
-                <div class="project-links">
-                    <a href="#" class="btn">Coming Soon</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact">
-        <h2 class="glitch-text">> echo $CONTACT</h2>
-        <div class="contact-content">
+        <section id="projects" class="section-shell">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Selected Work</p>
+                <h2>Projects with product polish and real interaction.</h2>
+            </div>
+            <div class="project-showcase reveal">
+                <div class="project-preview" style="background-image: url('./image/iogames.png');">
+                    <span id="project-preview-label">iogames.io</span>
+                </div>
+                <div class="project-list">
+                    <article class="project-row is-active" data-image="./image/iogames.png" data-title="iogames.io" tabindex="0">
+                        <span class="project-number">01</span>
+                        <div>
+                            <h3>iogames.io</h3>
+                            <p>A React platform that brings popular IO games together in one modern interface.</p>
+                            <div class="tech-stack"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vite</span></div>
+                        </div>
+                        <a class="project-action" href="https://github.com/Namerio/iogames.games" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </article>
+
+                    <article class="project-row" data-image="./image/umnhomepage.png" data-title="UMN Discover" tabindex="0">
+                        <span class="project-number">02</span>
+                        <div>
+                            <h3>UMN Discover</h3>
+                            <p>A campus tool for academics, navigation, services, and involvement in one place.</p>
+                            <div class="tech-stack"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>PostgreSQL</span><span>OAuth</span></div>
+                        </div>
+                        <a class="project-action" href="https://github.com/CSCI-Social-Club-UMN/UMN-Discover" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </article>
+
+                    <article class="project-row" data-image="./image/spritesheet-extractor-thumbnail.png" data-title="Spritesheet Extractor" tabindex="0">
+                        <span class="project-number">03</span>
+                        <div>
+                            <h3>Spritesheet Extractor</h3>
+                            <p>A fast frame extraction tool for game art and animation workflows.</p>
+                            <div class="tech-stack"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vite</span></div>
+                        </div>
+                        <a class="project-action" href="https://github.com/NAMERIO/Spritesheet-Extractor" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </article>
+
+                    <article class="project-row" data-image="https://opengraph.githubassets.com/1/NAMERIO/resurviv" data-title="resurviv" tabindex="0">
+                        <span class="project-number">04</span>
+                        <div>
+                            <h3>resurviv</h3>
+                            <p>An open-source recreation of surviv.io focused on preserving the browser game experience.</p>
+                            <div class="tech-stack"><span>TypeScript</span><span>CSS</span><span>HTML</span><span>Game Dev</span></div>
+                        </div>
+                        <a class="project-action" href="https://github.com/NAMERIO/resurviv" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </article>
+
+                    <article class="project-row" data-image="https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=900&q=80" data-title="Coin Track" tabindex="0">
+                        <span class="project-number">05</span>
+                        <div>
+                            <h3>Coin Track</h3>
+                            <p>A cryptocurrency tracker for real-time prices, market caps, and asset trends.</p>
+                            <div class="tech-stack"><span>React</span><span>Crypto API</span><span>Charts.js</span><span>TypeScript</span></div>
+                        </div>
+                        <a class="project-action" href="https://github.com/Namerio/cointrack" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </article>
+
+                    <article class="project-row" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcO1CwbMJHQd5zd89TFTk84Lno1ES4TGYW9w&s" data-title="Blind Ranking" tabindex="0">
+                        <span class="project-number">06</span>
+                        <div>
+                            <h3>Blind Ranking</h3>
+                            <p>A ranking game where players place items without seeing what comes next.</p>
+                            <div class="tech-stack"><span>TypeScript</span><span>WebSocket</span><span>Node.js</span></div>
+                        </div>
+                        <a class="project-action" href="https://github.com/NAMERIO/Blind-Ranking-Game" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                    </article>
+
+                    <article class="project-row" data-image="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/945360/capsule_616x353.jpg?t=1731953093" data-title="Among Us Clone" tabindex="0">
+                        <span class="project-number">07</span>
+                        <div>
+                            <h3>Among Us Clone</h3>
+                            <p>A browser-based recreation with multiplayer, tasks, and real-time interactions.</p>
+                            <div class="tech-stack"><span>Canvas</span><span>WebSocket</span><span>Node.js</span><span>TypeScript</span></div>
+                        </div>
+                        <span class="project-action project-action-disabled">Coming Soon</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-shell contact-section">
+            <div class="section-heading reveal">
+                <p class="eyebrow">Contact</p>
+                <h2>Want to build something for the web? Reach out.</h2>
+            </div>
             <div class="social-grid">
-                <a href="https://github.com/NAMERIO" target="_blank" class="social-card">
+                <a href="https://github.com/NAMERIO" target="_blank" rel="noreferrer" class="social-card reveal">
                     <i class="fab fa-github"></i>
                     <span>GitHub</span>
-                    <p>Check out my latest projects and contributions</p>
+                    <p>Latest projects and experiments</p>
                 </a>
-                <a href="https://www.linkedin.com/in/natan-berhanu-30624831a/" target="_blank" class="social-card">
+                <a href="https://www.linkedin.com/in/natan-berhanu-30624831a/" target="_blank" rel="noreferrer" class="social-card reveal">
                     <i class="fab fa-linkedin"></i>
                     <span>LinkedIn</span>
-                    <p>Connect with me professionally</p>
+                    <p>Connect professionally</p>
                 </a>
-                <a href="https://youtube.com/@namerio1" target="_blank" class="social-card">
+                <a href="https://youtube.com/@namerio1" target="_blank" rel="noreferrer" class="social-card reveal">
                     <i class="fab fa-youtube"></i>
                     <span>YouTube</span>
-                    <p>Watch my gameplay videos and tutorials</p>
+                    <p>Gameplay videos and tutorials</p>
                 </a>
-                <a href="mailto:natanberhanu22@gmail.com" target="_blank" class="social-card">
+                <a href="mailto:natanberhanu22@gmail.com" class="social-card reveal">
                     <i class="fas fa-envelope"></i>
                     <span>Email</span>
-                    <p>Get in touch</p>
+                    <p>Get in touch directly</p>
                 </a>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2025 | <span class="highlight">Made with ❤️ by Natan</span></p>
+        <p>2026 / Designed and built by <span>Natan</span></p>
     </footer>
 
     <script src="main.js"></script>
